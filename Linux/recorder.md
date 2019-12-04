@@ -53,10 +53,17 @@ Host XXX                              # 别名
     HostName 111.111.111.111          # ip地址
     Port 22                           # 端口号
     User root                         # 用户名
-    IdentityFile  ~/.ssh/id_rsa.pub   # 公钥路径
-    IdentitiesOnly yes                # 仅密钥登陆
+    IdentityFile  ~/.ssh/id_rsa       # 私钥路径
 ```
 config需要600权限
 ```bash
 chmod 600 config
+```
+
+## Vim 升级（centOS）
+```bash
+rpm -Uvh http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm
+rpm --import http://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7
+yum -y remove vim-minimal vim-common vim-enhanced
+yum -y --enablerepo=gf-plus install vim-enhanced sudo
 ```
